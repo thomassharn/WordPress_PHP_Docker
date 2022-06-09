@@ -1,0 +1,15 @@
+variables:
+  TEST_DISABLED: "true"
+  AUTO_DEVOPS_CHART_REPOSITORY: "https://charts.appdat.jsc.nasa.gov/incubator"
+  AUTO_DEVOPS_CHART_REPOSITORY_NAME: "appdat-incubator"
+  AUTO_DEVOPS_CHART: "appdat-incubator/auto-deploy-app"
+  HELM_UPGRADE_EXTRA_ARGS: "--timeout=3600s"
+  AUTO_DEVOPS_BUILD_IMAGE_EXTRA_ARGS: --build-arg NODE_ENV=$NODE_ENV 
+  HELM_RELEASE_NAME: wordpress-web
+
+include:
+  - project: "appdat/templates"
+    ref: master
+    file: "/v2/APPDAT-DevOps.gitlab-ci.yml"
+
+# NOTE MASTER BRANCH BUILD RUNS WITH NODE_ENV=PRODUCTION, WHICH BUILDS THE HTML WITH A BASE URL OF "/chapea"

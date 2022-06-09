@@ -1,0 +1,6 @@
+enable-default-deny: false     # true will block all requests, false will only protect the resources below
+resources:                     # endpoints to be protected
+  - uri: /SubmitHas.cfm.         # use: - uri: "/*" to protect all routes
+  - uri: /Admin/*
+add-claims:                    # user identity properties to be included with the JWT
+- auid

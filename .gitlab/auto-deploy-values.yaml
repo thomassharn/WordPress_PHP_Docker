@@ -1,0 +1,16 @@
+service:
+  externalPort: 8080
+  internalPort: 8000
+
+livenessProbe:
+  initialDelaySeconds: 90
+  timeoutSeconds: 90
+
+readinessProbe:
+  initialDelaySeconds: 90
+  timeoutSeconds: 90
+
+appdat:
+  auth:
+    gatekeeper:
+      enabled: true
